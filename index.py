@@ -14,7 +14,7 @@ def get_bitcoin_price():
 
 # News API
 def get_bitcoin_news():
-    response = requests.get('https://newsapi.org/v2/everything?q=bitcoin&apiKey=YOUR_API_KEY')
+    response = requests.get('https://newsapi.org/v2/everything?q=bitcoin&apiKey=1f0b65cc425b48708e44f638eccaa2fb')
     data = response.json()
     
     # Check if 'articles' key exists in the response

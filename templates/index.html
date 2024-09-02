@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bitcoin Portal</title>
+</head>
+<body>
+    <h1>Bitcoin Portal</h1>
+    <p>Current Bitcoin Price: {{ bitcoin_price }}</p>
+    <h2>Bitcoin News</h2>
+    <ul>
+    {% for article in bitcoin_news %}
+        <li>{{ article.title }}</li>
+    {% endfor %}
+    </ul>
+    <h2>Historical Price Trends</h2>
+    <img src="{{ url_for('historical_prices') }}" alt="Historical prices graph">
+    <h2>Quiz</h2>
+    <p>{{ quiz_question.question }}</p>
+    <form action="/quiz" method="post">
+        {% for answer in quiz_question.answers %}
+            <input type="radio" name="answer" value="{{ answer }}">{{ answer }}
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+    <div id="result"></div>
+
+    <script>
+        function updateResult(result) {
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
